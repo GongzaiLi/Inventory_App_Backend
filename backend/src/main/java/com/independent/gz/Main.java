@@ -38,12 +38,10 @@ public class Main {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**").allowedMethods("GET", "HEAD", "POST", "PUT", "DELETE", "OPTIONS", "PATCH")
-						.allowedOrigins("http://localhost:9555");
-				//.allowedOrigins("http://localhost:9555", "https://csse-s302g12.canterbury.ac.nz");
+						.allowedOrigins("http://localhost:9500");
+				//.allowedOrigins("http://localhost:9500", "https://csse-s302g12.canterbury.ac.nz");
 			}
 		};
 	}
-
-
 
 }
