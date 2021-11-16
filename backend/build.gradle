@@ -1,7 +1,7 @@
 plugins {
-	id 'org.springframework.boot' version '2.5.6'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '2.5.6'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
 }
 
 group = 'com.independent'
@@ -9,20 +9,27 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
+    // ability to use JPA in spring
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.6'
 
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.6'
+    // ability to expose JPA as REST services (discouraged, but used for example purpose here)
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 
-	implementation 'org.springframework.boot:spring-boot-starter-web:2.5.6'
+    // ability to expose RESTFul services (with controllers)
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.6'
 
-	runtimeOnly 'com.h2database:h2:1.4.200'
+    // ability to use in-memory database (for testing only)
+    runtimeOnly 'com.h2database:h2:1.4.200'
 
-	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.6'
+    // use spring boot mocking test framework
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.6'
+//	testImplementation 'org.mockito:mockito-inline:2.7.21'
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
